@@ -38,6 +38,15 @@ public class PersonaControllers {
 	public List<Persona> obtenerTodos(){
 		return ap.findAll();
 	}
+	@GetMapping("/persona/listar")
+	 public List<Persona> findByApellidosOrderByNombresAsc(String apellidos) {
+		return ap.findByApellidos(apellidos);
+	}
+	
+	@GetMapping("/persona/apellidos")
+	public List<Persona> findByApellidos(String apellidos) {
+		return ap.findByApellidos(apellidos);
+	}
 	
 	/** Obtener persona por Id
 	 * */

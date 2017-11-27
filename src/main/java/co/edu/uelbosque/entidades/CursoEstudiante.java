@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +15,9 @@ public class CursoEstudiante {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	private int idCurso;
+	@OneToOne
+	@JoinColumn(name="Id_curso")
+	private Curso idCurso;
 	private int documento;
 	/**
 	 * 
@@ -25,7 +29,7 @@ public class CursoEstudiante {
 	 * @param idCurso
 	 * @param documento
 	 */
-	public CursoEstudiante(long id, int idCurso, int documento) {
+	public CursoEstudiante(long id, Curso idCurso, int documento) {
 		this.id = id;
 		this.idCurso = idCurso;
 		this.documento = documento;
@@ -45,13 +49,13 @@ public class CursoEstudiante {
 	/**
 	 * @return the idCurso
 	 */
-	public int getIdCurso() {
+	public Curso getIdCurso() {
 		return idCurso;
 	}
 	/**
 	 * @param idCurso the idCurso to set
 	 */
-	public void setIdCurso(int idCurso) {
+	public void setIdCurso(Curso idCurso) {
 		this.idCurso = idCurso;
 	}
 	/**

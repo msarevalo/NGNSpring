@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,7 +23,9 @@ public class Acudiente {
 	private String nombre;
 	private String apellidos;
 	private String credenciales;
-	private String estudiante;
+	@ManyToOne
+	@JoinColumn(name="Id_estudiante")
+	private Estudiante estudiante;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecNac;
 	private int edad;
@@ -39,7 +43,7 @@ public class Acudiente {
 	 * @param fecNac
 	 * @param edad
 	 */
-	public Acudiente(long id,int documento, String nombre, String apellidos, String credenciales, String estudiante,
+	public Acudiente(long id,int documento, String nombre, String apellidos, String credenciales, Estudiante estudiante,
 			Date fecNac, int edad) {
 		this.id=id;
 		this.documento = documento;
@@ -114,13 +118,13 @@ public class Acudiente {
 	/**
 	 * @return the estudiante
 	 */
-	public String getEstudiante() {
+	public Estudiante getEstudiante() {
 		return estudiante;
 	}
 	/**
 	 * @param estudiante the estudiante to set
 	 */
-	public void setEstudiante(String estudiante) {
+	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
 	}
 	/**

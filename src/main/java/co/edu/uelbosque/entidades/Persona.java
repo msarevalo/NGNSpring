@@ -19,9 +19,13 @@ public class Persona {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idPersona;
 	
+	private String tipoDocumento;
 	private int documento;
 	private String nombre;
 	private String apellidos;
+	private String genero;
+	private String telefono;
+	private String direccion;
 	private String correo;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -29,13 +33,17 @@ public class Persona {
 	
 	public Persona () {}
 	
-	public Persona(int documento, String nombre, String apellidos, String correo, Date fecNac) {
+	public Persona(int documento, String nombre, String apellidos, String correo, Date fecNac, String tipoDocumento, String genero, String telefono, String direccion) {
 		super();
 		this.documento = documento;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.correo = correo;
 		this.fecNac = fecNac;
+		this.tipoDocumento = tipoDocumento;
+		this.genero = genero;
+		this.telefono = telefono;
+		this.direccion = direccion;
 	}
 	
 	public long getIdPersona() {
@@ -84,6 +92,62 @@ public class Persona {
 
 	public void setFecNac(Date fecNac) {
 		this.fecNac = fecNac;
+	}
+
+	/**
+	 * @return the tipoDocumento
+	 */
+	public String getTipoDocumento() {
+		return tipoDocumento;
+	}
+
+	/**
+	 * @param tipoDocumento the tipoDocumento to set
+	 */
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+
+	/**
+	 * @return the genero
+	 */
+	public String getGenero() {
+		return genero;
+	}
+
+	/**
+	 * @param genero the genero to set
+	 */
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	/**
+	 * @return the telefono
+	 */
+	public String getTelefono() {
+		return telefono;
+	}
+
+	/**
+	 * @param telefono the telefono to set
+	 */
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	/**
+	 * @return the direccion
+	 */
+	public String getDireccion() {
+		return direccion;
+	}
+
+	/**
+	 * @param direccion the direccion to set
+	 */
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	

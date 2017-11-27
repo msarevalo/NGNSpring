@@ -9,8 +9,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="curso_materia")
-public class CursoMateria {
+@Table(name="curso_docente")
+public class CursoDocente {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,22 +19,22 @@ public class CursoMateria {
 	@JoinColumn(name="Id_curso")
 	private Curso idCurso;
 	@OneToOne
-	@JoinColumn(name="Id_materia")
-	private Materia idMateria;
+	@JoinColumn(name="Id_docente")
+	private Docente idDocente;
 	/**
 	 * 
 	 */
-	public CursoMateria() {
+	public CursoDocente() {
 	}
 	/**
 	 * @param id
 	 * @param idCurso
-	 * @param idMateria
+	 * @param idDocente
 	 */
-	public CursoMateria(long id, Curso idCurso, Materia idMateria) {
+	public CursoDocente(long id, Curso idCurso, Docente idDocente) {
 		this.id = id;
 		this.idCurso = idCurso;
-		this.idMateria = idMateria;
+		this.idDocente = idDocente;
 	}
 	/**
 	 * @return the id
@@ -61,16 +61,16 @@ public class CursoMateria {
 		this.idCurso = idCurso;
 	}
 	/**
-	 * @return the idMateria
+	 * @return the idDocente
 	 */
-	public Materia getIdMateria() {
-		return idMateria;
+	public Docente getIdDocente() {
+		return idDocente;
 	}
 	/**
-	 * @param idMateria the idMateria to set
+	 * @param idDocente the idDocente to set
 	 */
-	public void setIdMateria(Materia idMateria) {
-		this.idMateria = idMateria;
+	public void setIdDocente(Docente idDocente) {
+		this.idDocente = idDocente;
 	}
 	
 	
