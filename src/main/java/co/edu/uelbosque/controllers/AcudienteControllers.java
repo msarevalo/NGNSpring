@@ -36,8 +36,8 @@ public class AcudienteControllers {
 	}
 	
 	@GetMapping("/acudiente/{id}")
-	public ResponseEntity<Acudiente> getAcudienteById(@PathVariable(value = "id") Long idAcu) {
-	    Acudiente a = ap.findOne(idAcu);
+	public ResponseEntity<Acudiente> getAcudienteByDocumento(@PathVariable(value = "id") Long documento) {
+	    Acudiente a = ap.findOne(documento);
 	    if(a == null) {
 	        return ResponseEntity.notFound().build();
 	    }

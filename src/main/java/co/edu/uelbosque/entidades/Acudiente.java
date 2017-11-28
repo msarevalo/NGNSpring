@@ -3,8 +3,6 @@ package co.edu.uelbosque.entidades;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,9 +15,7 @@ import javax.persistence.TemporalType;
 public class Acudiente {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
-	private int documento;
+	private Long documento;
 	private String nombre;
 	private String apellidos;
 	private String credenciales;
@@ -43,9 +39,9 @@ public class Acudiente {
 	 * @param fecNac
 	 * @param edad
 	 */
-	public Acudiente(long id,int documento, String nombre, String apellidos, String credenciales, Estudiante estudiante,
+	public Acudiente(long  documento, String nombre, String apellidos, String credenciales, Estudiante estudiante,
 			Date fecNac, int edad) {
-		this.id=id;
+		
 		this.documento = documento;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -55,28 +51,16 @@ public class Acudiente {
 		this.edad = edad;
 	}
 	
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
-	/**
+		/**
 	 * @return the documento
 	 */
-	public int getDocumento() {
+	public Long getDocumento() {
 		return documento;
 	}
 	/**
 	 * @param documento the documento to set
 	 */
-	public void setDocumento(int documento) {
+	public void setDocumento(long documento) {
 		this.documento = documento;
 	}
 	/**

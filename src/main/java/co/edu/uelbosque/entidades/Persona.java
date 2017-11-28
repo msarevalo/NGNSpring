@@ -3,8 +3,6 @@ package co.edu.uelbosque.entidades;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -15,12 +13,10 @@ import javax.persistence.TemporalType;
 
 public class Persona {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idPersona;
 	
 	private String tipoDocumento;
-	private int documento;
+	@Id
+	private Long documento;
 	private String nombre;
 	private String apellidos;
 	private String genero;
@@ -33,7 +29,7 @@ public class Persona {
 	
 	public Persona () {}
 	
-	public Persona(int documento, String nombre, String apellidos, String correo, Date fecNac, String tipoDocumento, String genero, String telefono, String direccion) {
+	public Persona(Long documento, String nombre, String apellidos, String correo, Date fecNac, String tipoDocumento, String genero, String telefono, String direccion) {
 		super();
 		this.documento = documento;
 		this.nombre = nombre;
@@ -46,19 +42,15 @@ public class Persona {
 		this.direccion = direccion;
 	}
 	
-	public long getIdPersona() {
-		return idPersona;
-	}
+	
 
-	public void setIdPersona(int idPersona) {
-		this.idPersona = idPersona;
-	}
+	
 
-	public int getDocumento() {
+	public Long getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(int documento) {
+	public void setDocumento(Long documento) {
 		this.documento = documento;
 	}
 

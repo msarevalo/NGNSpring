@@ -41,8 +41,8 @@ public class AdministradoresControllers {
 	/** Obtener us por Id
 	 * */
 	@GetMapping("/admin/{id}")
-	public ResponseEntity<Administradores> getAdministradoresById(@PathVariable(value = "id") Long idAdmin) {
-	    Administradores a = ap.findOne(idAdmin);
+	public ResponseEntity<Administradores> getAdministradoresByDocuento(@PathVariable(value = "id") Long documento) {
+	    Administradores a = ap.findOne(documento);
 	    if(a == null) {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -52,8 +52,8 @@ public class AdministradoresControllers {
 	/** Modificar us
 	 * */
 	@PutMapping("/admin/{id}")
-	public ResponseEntity<Administradores> updateAdministradores(@PathVariable(value = "id") Long idAdmin, @Valid @RequestBody Administradores adminDetails) {
-	    Administradores a = ap.findOne(idAdmin);
+	public ResponseEntity<Administradores> updateAdministradores(@PathVariable(value = "id") Long documento, @Valid @RequestBody Administradores adminDetails) {
+	    Administradores a = ap.findOne(documento);
 	    if(a == null) {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -70,8 +70,8 @@ public class AdministradoresControllers {
 	/** Eliminar una us
 	 * */
 	@DeleteMapping("/admin/{id}")
-	public ResponseEntity<Administradores> deleteAdministraciones(@PathVariable(value = "id") Long idAdmin) {
-	    Administradores a = ap.findOne(idAdmin);
+	public ResponseEntity<Administradores> deleteAdministraciones(@PathVariable(value = "id") Long documento) {
+	    Administradores a = ap.findOne(documento);
 	    if(a == null) {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -79,4 +79,6 @@ public class AdministradoresControllers {
 	    ap.delete(a);
 	    return ResponseEntity.ok().build();
 	}
+	
+	
 }

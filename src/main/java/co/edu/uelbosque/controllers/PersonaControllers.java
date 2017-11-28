@@ -51,8 +51,8 @@ public class PersonaControllers {
 	/** Obtener persona por Id
 	 * */
 	@GetMapping("/persona/{id}")
-	public ResponseEntity<Persona> getPersonaById(@PathVariable(value = "id") Long idPersona) {
-	    Persona p = ap.findOne(idPersona);
+	public ResponseEntity<Persona> getPersonaByDocumento(@PathVariable(value = "id") Long documento) {
+	    Persona p = ap.findOne(documento);
 	    if(p == null) {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -62,14 +62,19 @@ public class PersonaControllers {
 	/** Modificar personas
 	 * */
 	@PutMapping("/persona/{id}")
-	public ResponseEntity<Persona> updatePersona(@PathVariable(value = "id") Long idPersona, @Valid @RequestBody Persona personaDetails) {
-	    Persona p = ap.findOne(idPersona);
+	public ResponseEntity<Persona> updatePersona(@PathVariable(value = "id") Long documento, @Valid @RequestBody Persona personaDetails) {
+	    Persona p = ap.findOne(documento);
 	    if(p == null) {
 	        return ResponseEntity.notFound().build();
 	    }
+	    
 	    p.setDocumento(personaDetails.getDocumento());
+	    p.setTipoDocumento(personaDetails.getTipoDocumento());
 	    p.setNombre(personaDetails.getNombre());
 	    p.setApellidos(personaDetails.getApellidos());
+	    p.setGenero(personaDetails.getGenero());
+	    p.setTelefono(personaDetails.getTelefono());
+	    p.setDireccion(personaDetails.getDireccion());
 	    p.setCorreo(personaDetails.getCorreo());
 	    p.setFecNac(personaDetails.getFecNac());
 
@@ -80,8 +85,8 @@ public class PersonaControllers {
 	/** Eliminar una persona
 	 * */
 	@DeleteMapping("/persona/{id}")
-	public ResponseEntity<Persona> deletePersona(@PathVariable(value = "id") Long idPersona) {
-	    Persona p = ap.findOne(idPersona);
+	public ResponseEntity<Persona> deletePersona(@PathVariable(value = "id") Long documento) {
+	    Persona p = ap.findOne(documento);
 	    if(p == null) {
 	        return ResponseEntity.notFound().build();
 	    }
